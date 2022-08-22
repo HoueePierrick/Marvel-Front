@@ -1,0 +1,289 @@
+.top-div {
+    padding: 0px 50px;
+    box-sizing: border-box;
+    width: 100vw;
+    background-color: #202020;
+    height: 51px;
+    display: flex;
+    border: 1px #393939 solid;
+    justify-content: space-between;
+}
+
+.log-sign {
+    width: 170px;
+    border: 1px #393939 solid;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.log-sign > span {
+    color: #FFFFFF;
+    font-size: 18px;
+    margin: 0px 3px;
+}
+
+.login-icon {
+    color: #FFFFFF;
+    margin-right: 5px;
+}
+
+.action:hover {
+    cursor: pointer;
+}
+
+.Marvel-logo {
+    height: 100%;
+    object-fit: cover;
+}
+
+.search-one-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-one {
+    margin: 10px 30px;
+    width: min(calc(100vw - 170px * 2 - 30px * 2), 800px);
+    box-sizing: border-box;
+    padding: 0px 10px;
+    font-size: 16px;
+    color: #202020;
+    height: 30px;
+}
+
+.search-two-container {
+    display: none;
+}
+
+.search-two {
+    display: none
+}
+
+.menu {
+    height: 40px;
+    border: 1px #393939 solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    background-color:  #202020;
+}
+
+.menu-link, .current-page {
+    margin: 0px 30px;
+    height: 100%;
+    width: 100px;
+    text-align: center;
+    padding-top: 12px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color:  #FFFFFF;
+}
+
+.menu-link:hover {
+    cursor: pointer;
+    color: #202020;
+    background-color:#FFFFFF;
+}
+
+.current-page {
+    color: #202020;
+    background-color:  #FFFFFF;
+}
+
+.full-signin-modal {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050505;
+    opacity: 0.9;
+}
+
+.real-signin-modal {
+    height: min(520px, calc(100% - 30px*2));
+    width: min(415px, calc(100% - 30px*2));
+    background-color: #FFFFFF;
+    position: absolute;
+    z-index: 2;
+    top: 30px;
+    left: max(30px, calc((100% - 415px)/2));
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    border-radius: 5px;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.closing-sign-modal {
+    width: calc(100%);
+    display: flex;
+    justify-content: flex-end;
+    font-size: 30px;
+    color: #5C5C5C;
+    margin-bottom: 20px;
+}
+
+.sign-modal-logos {
+    height: 50px;
+    width: calc(100%);
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.sign-in-modal {
+    width: calc(100%);
+    text-align: center;
+    color: #E52428;
+    margin-bottom: 25px;
+}
+
+.signin-form {
+    width: calc(100%);
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #999999;
+    margin-bottom: 20px;
+}
+
+.checked-signin-input {
+    width: calc(100%);
+    color:#5C5C5C;
+    font-size: 14px;
+    display: flex;
+    position: relative;
+    top: -15px;
+    margin-top: 10px;
+}
+
+#first-checked-input {
+    margin-top: 0px;
+}
+
+.signin-checkbox {
+    height: 20px;
+    width: 20px;
+    border-radius: 2px;
+    border: 1px solid #999999;
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
+.signin-check-label {
+    padding-top: 5px;
+    width: calc(100% - 20px - 10px);
+}
+
+.signin-input, .signin-submit {
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #999999;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.signin-submit {
+    background-color: #E52428;
+    color: #FFFFFF;
+    border-radius: none;
+    border: none;
+}
+
+.signin-create {
+    width: 200px;
+    height: 40px;
+    margin: 0px calc((100% - 200px) / 2);
+    border-radius: 0px;
+    display: block;
+    background-color: inherit;
+}
+
+.div-placeholder {
+    height: 20px;
+    width: 100%;
+}
+
+.last-desc {
+    width: calc(100% + 20px);
+    color:#5C5C5C;
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.classic {
+    margin-right: 1.5px;
+    margin-left: 1.5px;
+}
+
+.link {
+    color: #E52428;
+    text-decoration: underline;
+    margin-right: 1.5px;
+    margin-left: 1.5px;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+.birth-label {
+    color:#5C5C5C;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.search-icon {
+    position: relative;
+    font-size: 20px;
+    right: 60px;
+    cursor: pointer;
+}
+
+@media (max-width: 620px) {
+    .menu-link {
+        margin: 0px 10px;
+    }
+    .top-div {
+        padding: 0px 10px;
+    }
+    .search-one-container {display: none;}
+    .search-one {display: none;}
+    .search-two-container {
+        display: block;
+        background-color:  #202020;
+        margin: none;
+        padding: 10px 30px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .search-two {
+        display: block;
+        width: calc(100% - 20px);
+        height: 30px;
+        box-sizing: border-box;
+        padding: 0px 10px;
+        font-size: 16px;
+        color: #202020;
+    }
+    .search-icon {
+        position: relative;
+        font-size: 20px;
+        right: 30px;
+        cursor: pointer;
+    }
+}

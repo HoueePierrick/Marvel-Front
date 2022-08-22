@@ -1,0 +1,111 @@
+.char-container {
+    margin: 20px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.full-item {
+    width: max(calc(20% - 20px), calc(250px - 20px));
+    margin-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+}
+
+.full-item:hover {
+    cursor: pointer;
+}
+
+.charpic {
+    width: 100%;
+    object-fit: fill;
+    height: 300px;
+    margin-bottom: 5px;
+}
+
+.charname {
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.desc {
+    font-weight: bold;
+}
+
+.page-menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #1493B3;
+    height: 20px;
+}
+
+.page-menu > * {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.limit-options {
+    border: 1px #1493B3 dotted;
+    width: 110px;
+    display: flex;
+    height: 20px;
+    flex-wrap: wrap;
+    background-color: white;
+    overflow-y: hidden;
+}
+
+.limit-options:hover {
+    height: 120px;
+    position: relative;
+    top: 50px
+}
+
+.caret-down {
+    margin-left: 5px;
+}
+
+.limit-options > * {
+    cursor: pointer;
+    padding: 0px 5px;
+}
+
+.limit-options > *:not(:first-child) {
+    width: 100%;;
+}
+
+.limit-options > *:hover {
+    background-color: #D6F0F7;
+}
+
+.actual-page {
+    background-color: #D6F0F7;
+    border: 1px #1493B3 dotted;
+    color:  #1493B3;
+    width: 25px;
+    margin: 0px;
+    margin-right: 5px;
+    padding: 0px;
+    text-align: center;
+    height: 20px;
+}
+
+@media (max-width: 500px) {
+    .page-menu {
+        flex-wrap: wrap;
+        height: 50px;
+    }
+    .limit-options:hover {
+        height: 120px;
+        position: relative;
+        top: 20px
+    }
+}
