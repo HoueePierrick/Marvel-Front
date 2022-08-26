@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from "react";
 
 // Function to display the list of pages to be displayed
 const PageDisp = (props) => {
@@ -32,7 +31,7 @@ const PageDisp = (props) => {
                 <FontAwesomeIcon className="right-chevron" icon="angle-left" onClick={(e) => {setPage(1)}}></FontAwesomeIcon>
                 <span onClick={(e) => {page > 1 && setPage(page - 1)}}>Prev</span>
                 {result.map((elem) => {
-                    return <span key={elem} className={page===elem && "actual-page"} onClick={(e) => {setPage(elem)}}>{elem}</span>
+                    return <span key={elem} className={page===elem ? "actual-page" : "none"} onClick={(e) => {setPage(elem)}}>{elem}</span>
                 })}
                 <span onClick={(e) => {page <= totPage && setPage(page + 1)}}>Next</span>
                 <FontAwesomeIcon className="left-chevron" icon="angle-right" onClick={(e) => {setPage(totPage)}}></FontAwesomeIcon>

@@ -14,6 +14,7 @@
     flex-direction: column;
     text-decoration: none;
     color: black;
+    position: relative;
 }
 
 .full-item:hover {
@@ -96,6 +97,67 @@
     padding: 0px;
     text-align: center;
     height: 20px;
+}
+
+.comic-char-filter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color:  #1493B3;
+}
+
+.comic-association {
+    margin-right: 10px;
+}
+
+.comic-filter {
+    border-radius: 5px;
+    background-color: #D6F0F7;
+    border: 1px #1493B3 dotted;
+    display: flex;
+    padding: 0px 5px;
+    cursor: pointer;
+}
+
+.comic-filter > span {
+    margin-right: 5px;
+}
+
+.filter-xmark {
+    font-size: 18px;
+}
+
+.circle {
+    display: flex;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid  #5E646A;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: white;
+    right: 10px;
+    top: 10px;
+}
+
+.grey-heart {
+    color: #5E646A;
+    cursor:auto;
+    z-index: 2;
+}
+
+.red-heart {
+    color: #E52428;
+    cursor:auto;
+    z-index: 2;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
 }
 
 @media (max-width: 500px) {

@@ -2,7 +2,10 @@ import './Characters.css';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import PageDisp from '../../Components/Header/PageDisp';
+import PageDisp from '../../Components/PageDisp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const FavCharFinder = require('../../Components/FavCharFinder')
 
 const Characters = (props) => {
     const [data, setData] = useState(null); // state to stock API response data
@@ -11,7 +14,7 @@ const Characters = (props) => {
     const [limit, setLimit] = useState(100); // state to choose how many characters are displayed on each page => 100 by default
     const [totPage, setTotPage] = useState(1); // state stockant le nombre de pages à afficher
 
-    const {search, setSearch, setLookedAt, pendSearch, setPendSearch, lookedAt} = props;
+    const {search, setSearch, setLookedAt, setPendSearch, lookedAt, token, userEmail, setFavChars, favChars} = props;
 
     useEffect(() => {
         const fetchData = async() => {
@@ -32,8 +35,7 @@ const Characters = (props) => {
             }
         };
         fetchData()
-    }, [page, limit, search])
-    console.log(data);
+    }, [page, limit, search, lookedAt, setLookedAt, setPendSearch, setSearch])
     
     return isLoading ?
         <span className='loading'>The list of characters is currently loading</span>
@@ -43,7 +45,41 @@ const Characters = (props) => {
             <>
                 <PageDisp page={page} totPage={totPage} setPage={setPage} limit={limit} setLimit={setLimit}></PageDisp>
                 {data.results.map((elem) => {
-                    return <Link to="/comics" state={elem} className='full-item' key={elem._id}>
+                    return <div className='full-item' key={elem._id}>
+                            {token && 
+                            FavCharFinder(favChars, elem) ?
+                            <div className='circle' onClick={async(e) => {
+                                try {
+                                    let request = `https://reacteur-marvel-back.herokuapp.com/favorite/characters/remove`;
+                                                const response = await axios.post(request, {type:"character", content: elem, account_email: userEmail});
+                                                let returned = response.data.AllFavChar;
+                                                let toreturn = [];
+                                                for(let i = 0; i < returned.length; i++) {
+                                                    toreturn.push(returned[i].content)
+                                                }
+                                                setFavChars(toreturn);
+                                            } catch (error) {
+                                                console.log(error.response)
+                                            }
+                                        }}><FontAwesomeIcon icon="heart" className='red-heart'></FontAwesomeIcon></div>
+                            :
+                            <div className='circle' onClick={async(e) => {
+                                try {
+                                    let request = `https://reacteur-marvel-back.herokuapp.com/favorite/characters/add`;
+                                                const response = await axios.post(request, {type:"character", content: elem, account_email: userEmail});
+                                                let returned = response.data.AllFavChar;
+                                                let toreturn = [];
+                                                for(let i = 0; i < returned.length; i++) {
+                                                    toreturn.push(returned[i].content)
+                                                }
+                                                setFavChars(toreturn);
+                                            } catch (error) {
+                                                console.log(error.response)
+                                            }
+                                        }}><FontAwesomeIcon icon="heart" className='grey-heart'></FontAwesomeIcon></div>
+                            }
+
+                                <Link to="/comics" state={elem} className="link">
                                 <img src={elem.thumbnail.path + "." + elem.thumbnail.extension} alt={elem.description} className="charpic"/>
                                 <span className='charname'>{elem.name}</span>
                                 <div>
@@ -51,6 +87,7 @@ const Characters = (props) => {
                                     <span className='chardesc'>{elem.description ? elem.description : "not available"}</span>
                                 </div>
                             </Link>
+                            </div>
                 })}
                 <PageDisp page={page} totPage={totPage} setPage={setPage} limit={limit} setLimit={setLimit}></PageDisp>
             </> 
